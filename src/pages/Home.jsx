@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 import {getPopularMovies, searchMovies} from "../services/api"
 import '../css/Home.css'
 
+
 function Home(){
     const [searchQuery, setSearchQuery] = useState("");
     const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ function Home(){
         }   
 
         loadPopularMovies()
-    }, []);
+    }, [])
 
 
 
@@ -32,6 +33,7 @@ function Home(){
     e.preventDefault();
     if (!searchQuery.trim()) return
     if (loading) return
+
     setLoading(true)
     try {
         const searchResults = await searchMovies(searchQuery)
@@ -70,6 +72,6 @@ function Home(){
             </div>
              )}
         </div>
-    );
+    )
 }
 export default Home
